@@ -1,0 +1,40 @@
+package br.com.consultorio.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "historicos", schema = "public")
+public class Historico extends AbstractEntity {
+
+    @Getter @Setter
+    @Column(name = "data", nullable = false)
+    private LocalDateTime data;
+
+    @Getter @Setter
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private StatusAgenda statusAgenda;
+
+    @Getter @Setter
+    @Column(name = "observacao", columnDefinition = "TEXT")
+    private String observacao;
+
+    @Getter @Setter
+    @JoinColumn(name = "id_secretaria")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Secretaria secretaria;
+
+    @Getter @Setter
+    @JoinColumn(name = "id_paciente")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Paciente paciente;
+
+    @Getter @Setter
+    @JoinColumn(name = "id_agenda", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Agenda agenda;
+
+}
