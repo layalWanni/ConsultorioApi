@@ -13,7 +13,7 @@ public interface ConvenioRepository extends JpaRepository<Convenio, Long> {
     @Modifying
     @Query("UPDATE Convenio convenio " +
             "SET convenio.excluido = :excluido " +
-            "WHERE convenio.id = :especialidade")
+            "WHERE convenio.id = :convenio")
     public void updateDataExcluido(@Param("excluido") LocalDateTime excluido, @Param("convenio") Long idConvenio);
 
 }
