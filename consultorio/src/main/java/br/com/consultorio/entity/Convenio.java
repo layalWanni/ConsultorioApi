@@ -23,6 +23,6 @@ public class Convenio extends AbstractEntity{
 
     @Getter @Setter
     @Digits(integer = 5, fraction = 3)
-    @Column(name = "valor", , precision = 5, scale = 3, nullable = false)
+    @Column(name = "valor", precision = 5, scale = 3, nullable = false)
     private BigDecimal valor;
 }

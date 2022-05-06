@@ -1,4 +1,4 @@
-package br.com.consultorio.Service;
+package br.com.consultorio.service;
 
 import br.com.consultorio.entity.Medico;
 import br.com.consultorio.repository.MedicoRepository;

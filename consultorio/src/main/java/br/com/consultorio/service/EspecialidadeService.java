@@ -1,4 +1,4 @@
-package br.com.consultorio.Service;
+package br.com.consultorio.service;
 
 import br.com.consultorio.entity.Especialidade;
 import br.com.consultorio.repository.EspecialidadeRepository;
