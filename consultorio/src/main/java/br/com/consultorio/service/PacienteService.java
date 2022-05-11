@@ -46,7 +46,6 @@ public class PacienteService {
         this.saveTransactional(paciente);
     }
 
-
     @Transactional
     public void updateDataExcluido(Long id, Paciente paciente){
         if (id == paciente.getId()) {

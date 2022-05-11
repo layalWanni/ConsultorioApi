@@ -1,6 +1,8 @@
 package br.com.consultorio.service;
 
 import br.com.consultorio.entity.Agenda;
+import br.com.consultorio.entity.Paciente;
+import br.com.consultorio.entity.TipoAtendimento;
 import br.com.consultorio.repository.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +26,15 @@ public class AgendaService {
         return this.agendaRepository.findAll(pageable);
     }
 
+    @Transactional
+    public void saveTransactional(Agenda agenda){
+        this.agendaRepository.save(agenda);
+    }
+
+    public void insert(Agenda agenda){
+        this.validarAgenda(agenda);
+        this.saveTransactional(agenda);
+    }
 
     @Transactional
     public void updateDataExcluido(Long id, Agenda agenda){
@@ -35,4 +46,19 @@ public class AgendaService {
         }
     }
 
+    @Transactional
+    public void listarStatusAgenda(String status){
+        this.agendaRepository.listarStatusAgenda(status);
+    }
+
+    public void validarAgenda(Agenda agenda){
+
+            if (agenda.getData().compareTo(LocalDateTime.now()) <= 0){
+                throw new RuntimeException("Data de Agendamento nao valido.");
+            }
+    }
+
+
 }
+
+
