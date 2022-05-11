@@ -21,7 +21,8 @@ public class AgendaService {
         return this.agendaRepository.findById(id);
     }
     public Page<Agenda> listAll(Pageable pageable){
-        return this.agendaRepository.findAll(pageable
+        return this.agendaRepository.findAll(pageable);
+    }
 
 
     @Transactional
