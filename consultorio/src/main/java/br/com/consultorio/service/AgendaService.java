@@ -46,15 +46,30 @@ public class AgendaService {
         }
     }
 
-    @Transactional
-    public void listarStatusAgenda(String status){
-        this.agendaRepository.listarStatusAgenda(status);
-    }
+//    @Transactional
+//    public void listarStatusAgenda(String status){
+//        this.agendaRepository.listarStatusAgenda(status);
+//    }
 
     public void validarAgenda(Agenda agenda){
 
             if (agenda.getData().compareTo(LocalDateTime.now()) <= 0){
                 throw new RuntimeException("Data de Agendamento nao valido.");
+            }
+            if (agenda.getData() == null){
+                throw new RuntimeException("Data nao informada.");
+            }
+            if (agenda.getEncaixe() == null){
+                throw new RuntimeException("Encaixe nao informado");
+            }
+            if (agenda.getMedico() == null){
+                throw new RuntimeException("Informe um Medico para o Agendamento");
+            }
+            if (agenda.getPaciente() == null){
+                throw new RuntimeException("Informe um Paciente para o Agendamento");
+            }
+            if (agenda.getStatusAgenda() == null){
+                throw new RuntimeException("Infome um status para o Agendamento");
             }
     }
 
