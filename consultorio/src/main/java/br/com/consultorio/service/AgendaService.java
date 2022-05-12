@@ -46,10 +46,6 @@ public class AgendaService {
         }
     }
 
-//    @Transactional
-//    public void listarStatusAgenda(String status){
-//        this.agendaRepository.listarStatusAgenda(status);
-//    }
 
     public void validarAgenda(Agenda agenda){
 
