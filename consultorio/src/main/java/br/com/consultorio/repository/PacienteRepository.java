@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 public interface PacienteRepository extends JpaRepository<Paciente, Long> {
     @Modifying
     @Query("UPDATE Paciente paciente " +
-            "SET paciente.excluido = :excluido " +
-            "WHERE paciente.id = :paciente")
-    public void updateDataExcluido(@Param("excluido") LocalDateTime excluido, @Param("paciente") Long idPaciente);
+            "SET paciente.ativo = :true " +
+            "WHERE paciente.id = :idPaciente")
+    public void desativar(@Param("idPaciente") Long idPaciente);
 
 }

@@ -14,9 +14,9 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Table(name = "secretarias", schema = "public")
+
 public class Secretaria extends Pessoa {
-    @Getter
-    @Setter
+    @Getter @Setter
     @Digits(integer = 5, fraction = 3)
     @Column(name = "salario", precision = 5, scale = 3,nullable = false)
     private BigDecimal salario;

@@ -42,7 +42,7 @@ public class ConvenioService {
     @Transactional
     public void updateDataExcluido(Long id, Convenio convenio){
         if (id == convenio.getId()) {
-            this.convenioRepository.updateDataExcluido(LocalDateTime.now(),convenio.getId());
+            this.convenioRepository.desativar(LocalDateTime.now(),convenio.getId());
         }
         else {
             throw new RuntimeException();

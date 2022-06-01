@@ -18,8 +18,8 @@ public class SecretariaService {
 
     public Optional<Secretaria> findById(Long id){
         return this.secretariaRepository.findById(id);
+//        return this.secretariaRepository.findById(id).orElse(new Secretaria());
     }
-
     public Page<Secretaria> listAll(Pageable pageable){
         return this.secretariaRepository.findAll(pageable);
     }
@@ -30,7 +30,7 @@ public class SecretariaService {
             this.secretariaRepository.save(secretaria);
         }
         else {
-            throw new RuntimeException();
+            throw new RuntimeException("Error: Nao foi possivel editar a Secretaria, valores inconsistentes.");
         }
     }
 
@@ -40,12 +40,12 @@ public class SecretariaService {
     }
 
     @Transactional
-    public void updateDataExcluido(Long id, Secretaria secretaria){
+    public void desativar(Long id, Secretaria secretaria){
         if (id == secretaria.getId()) {
-            this.secretariaRepository.updateDataExcluido(LocalDateTime.now(),secretaria.getId());
+            this.secretariaRepository.desativar(secretaria.getId());
         }
         else {
-            throw new RuntimeException();
+            throw new RuntimeException("Error: Não foi possivel editar a Secretaria, valores inconsistentes.");
         }
     }
 }

@@ -12,8 +12,8 @@ public interface ConvenioRepository extends JpaRepository<Convenio, Long> {
 
     @Modifying
     @Query("UPDATE Convenio convenio " +
-            "SET convenio.excluido = :excluido " +
-            "WHERE convenio.id = :convenio")
-    public void updateDataExcluido(@Param("excluido") LocalDateTime excluido, @Param("convenio") Long idConvenio);
+            "SET convenio.ativo = :true " +
+            "WHERE convenio.id = :idConvenio")
+    public void desativar(@Param("idConvenio") Long idConvenio);
 
 }

@@ -42,7 +42,7 @@ public class MedicoService {
     @Transactional
     public void updateDataExcluido(Long id, Medico medico){
         if (id == medico.getId()) {
-            this.medicoRepository.updateDataExcluido(LocalDateTime.now(),medico.getId());
+            this.medicoRepository.desativar(LocalDateTime.now(),medico.getId());
         }
         else {
             throw new RuntimeException();

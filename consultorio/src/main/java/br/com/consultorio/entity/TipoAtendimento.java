@@ -3,7 +3,7 @@ package br.com.consultorio.entity;
 public enum TipoAtendimento {
 
     particular("Particular"),
-    convenio("Convênio");
+        convenio("Convênio");
 
     public final String valor;
 

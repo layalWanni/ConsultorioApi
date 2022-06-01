@@ -15,8 +15,7 @@ import javax.persistence.MappedSuperclass;
 
 public abstract class Pessoa extends AbstractEntity{
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
@@ -58,12 +57,6 @@ public abstract class Pessoa extends AbstractEntity{
     @Column(name = "sexo", nullable = false, length = 20)
     private Sexo sexo;
 
-    /**
-     * @see AbstractEntity#AbstractEntity(Long)
-     *
-     * @param id
-     * @param nome
-     */
     public Pessoa(Long id, String nome){
         super(id);
         this.nome = nome;

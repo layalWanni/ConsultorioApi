@@ -49,7 +49,7 @@ public class PacienteService {
     @Transactional
     public void updateDataExcluido(Long id, Paciente paciente){
         if (id == paciente.getId()) {
-            this.pacienteRepository.updateDataExcluido(LocalDateTime.now(),paciente.getId());
+            this.pacienteRepository.desativar(LocalDateTime.now(),paciente.getId());
         }
         else {
             throw new RuntimeException();

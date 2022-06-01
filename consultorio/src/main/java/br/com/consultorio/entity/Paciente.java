@@ -14,8 +14,7 @@ import java.time.LocalDateTime;
 
 public class Paciente extends Pessoa implements Serializable {
 
-    @Getter
-    @Setter
+    @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_atendimento", nullable = false, length = 20)
     private TipoAtendimento tipoAtendimento;

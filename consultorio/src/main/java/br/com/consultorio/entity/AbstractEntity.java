@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 public abstract class AbstractEntity {
-    @Getter @Setter
+
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -27,7 +28,7 @@ public abstract class AbstractEntity {
 
     @Getter @Setter
     @Column(name = "excluido")
-    private LocalDateTime excluido;
+    private LocalDateTime ativo;
 
     public AbstractEntity(Long id){
         this.id = id;

@@ -42,7 +42,7 @@ public class EspecialidadeService {
     @Transactional
     public void updateDataExcluido(Long id, Especialidade especialidade){
         if (id == especialidade.getId()) {
-            this.especialidadeRepository.updateDataExcluido(LocalDateTime.now(),especialidade.getId());
+            this.especialidadeRepository.desativar(LocalDateTime.now(),especialidade.getId());
         }
         else {
             throw new RuntimeException();
